@@ -1,0 +1,426 @@
+<!-- FLEXPAY-DESGIN  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexPay - P2P Lending Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --dark-green: #004225;
+      --beige: #F5F5DC;
+      --warm-yellow: #FFB000;
+      --peach: #FFCF9D;
+      --text-dark: #2a2a2a;
+      --text-light: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--beige);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .logo{
+      height: 40px;
+      border-radius: 25%;
+    }
+    .navbar {
+      background: var(--dark-green);
+      padding: 1rem 2rem;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--warm-yellow) !important;
+    }
+    .navbar .btn-primary {
+      background: var(--warm-yellow);
+      border: none;
+      border-radius: 6px;
+      color: var(--text-light);
+      font-weight: 600;
+      padding: 8px 18px;
+    }
+    .navbar .btn-primary:hover {
+      background: var(--peach);
+      color: var(--dark-green);
+    }
+
+    /* Hero */
+    .hero {
+      height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(120deg, var(--warm-yellow), var(--peach));
+      color: var(--dark-green);
+      overflow: hidden;
+    }
+    .hero-content {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideUp 1.2s ease-out forwards;
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: auto;
+    }
+    .hero .btn-lg {
+      margin-top: 30px;
+      padding: 14px 36px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      background: var(--dark-green);
+      color: var(--text-light);
+    }
+    .hero .btn-lg:hover {
+      background: var(--warm-yellow);
+      color: var(--dark-green);
+    }
+
+    /* Section wrapper */
+    .section {
+      padding: 90px 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Why FlexPay */
+    .why-section {
+      background: var(--beige);
+    }
+    .feature-card {
+      border: none;
+      border-radius: 12px;
+      padding: 40px 25px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+      background: var(--peach);
+    }
+    .feature-card i {
+      font-size: 2.5rem;
+      color: var(--dark-green);
+      margin-bottom: 15px;
+    }
+
+    /* How it Works */
+    .steps-section {
+      background: var(--peach);
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+    .step-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+    }
+
+    /* FAQ */
+    .faq-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .faq-card h5 {
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-green);
+      padding: 30px;
+      text-align: center;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <img src="./" alt="flexpaylogo" alt = "logo" class=" logo me-2">
+    <a class="navbar-brand" href="#">FlexPay</a>
+    <div class="ms-auto">
+      <a href="login.html" class="btn btn-light me-2">Login</a>
+      <a href="registration.html" class="btn btn-primary">Register</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Peer-to-Peer Lending & Borrowing Made Simple</h1>
+    <p>Empowering individuals to borrow at lower rates and lend at higher returns — securely, transparently, and instantly.</p>
+    <a href="registration.html" class="btn btn-lg">Get Started</a>
+  </div>
+</section>
+
+<!-- Why FlexPay -->
+<section class="section why-section text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-5">Why Choose FlexPay?</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="bi bi-shield-lock"></i>
+          <h4>Safe & Secure</h4>
+          <p>KYC verified users, smart contracts, and encrypted transactions ensure safety.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="bi bi-graph-up"></i>
+          <h4>High Returns</h4>
+          <p>Lenders earn attractive returns, much higher than traditional savings.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="bi bi-cash-coin"></i>
+          <h4>Low Interest Loans</h4>
+          <p>Borrowers get instant loans at affordable interest rates with no middlemen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it Works -->
+<section class="section">
+  <div class="container steps-section p-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">How FlexPay Works</h2>
+      <p class="text-muted">Start your journey in just 3 easy steps</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="step-card">
+          <h4>1. Create Account</h4>
+          <p>Sign up as borrower or lender & complete KYC verification.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step-card">
+          <h4>2. Apply / Invest</h4>
+          <p>Borrowers request loans, lenders choose borrowers to invest in.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step-card">
+          <h4>3. Earn / Repay</h4>
+          <p>Smart contracts ensure timely repayments & returns directly to wallets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-card">
+      <h5>Is FlexPay safe?</h5>
+      <p>Yes, all users are KYC verified and transactions are secured with blockchain-powered smart contracts.</p>
+    </div>
+    <div class="faq-card">
+      <h5>What returns can lenders expect?</h5>
+      <p>Depending on the borrower’s risk profile, lenders can earn 12-18% annually.</p>
+    </div>
+    <div class="faq-card">
+      <h5>How fast can I get a loan?</h5>
+      <p>Approved borrowers can get matched and receive funds within 24-48 hours.</p>
+    </div>
+    <div class="faq-card">
+      <h5>Do you follow RBI guidelines?</h5>
+      <p>Yes, FlexPay operates in compliance with RBI norms for P2P lending platforms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class=" slide-in-left">
+  <div class="container footer ">
+    <div class="row g-4">
+      <!-- About -->
+      <div class="col-md-4">
+        <h5 class="footer-title">FlexPay</h5>
+        <p>FlexPay is a P2P lending platform empowering individuals to borrow at lower rates and lend at higher returns. Secure. Transparent. Instant.</p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div class="col-md-2">
+        <h6 class="footer-subtitle">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="#why">Why FlexPay</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="registration.html">Register</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3">
+        <h6 class="footer-subtitle">Contact</h6>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-envelope-fill me-2"></i> support@flexpay.com</li>
+          <li><i class="bi bi-telephone-fill me-2"></i> +91 98765 43210</li>
+          <li><i class="bi bi-geo-alt-fill me-2"></i> MANIT, Bhopal, India</li>
+        </ul>
+      </div>
+
+      <!-- Socials -->
+      <div class="col-md-3">
+        <h6 class="footer-subtitle">Follow Us</h6>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="text-center mt-3">
+      <p class="mb-0">© 2025 FlexPay | Built at MANIT Bhopal | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--dark-green);
+    color: var(--text-light);
+    padding: 60px 20px 30px;
+    opacity: 0; /* initially hidden */
+    transform: translateX(-100px); /* start from left */
+    transition: all 0.8s ease-in-out;
+  }
+  .footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--warm-yellow);
+    margin-bottom: 15px;
+  }
+  .footer-subtitle {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--peach);
+  }
+  .footer p, .footer a, .footer li {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    text-decoration: none;
+  }
+  .footer a:hover {
+    color: var(--warm-yellow);
+  }
+  .footer .social-icons a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+  }
+  .footer .social-icons a:hover {
+    color: var(--warm-yellow);
+  }
+  .footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+  }
+
+  /* Slide in effect */
+  .footer.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  // Intersection Observer for footer animation
+  document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.querySelector(".footer");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            footer.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(footer);
+  });
+</script>
+
+
+<script>
+  // Reveal sections on scroll
+  const sections = document.querySelectorAll('.section');
+  const revealOnScroll = () => {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        sec.classList.add('visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+
+</body>
+</html>
