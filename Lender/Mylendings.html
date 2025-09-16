@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Lendings</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    /* Sidebar */
+    .sidebar {
+      height: 100vh;
+      background: #1e293b;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+    }
+    .sidebar h4 {
+      color: #38bdf8;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+    /* Top bar */
+    .topbar {
+      background: #1e293b;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+    }
+    .breadcrumb {
+      margin: 0;
+      background: transparent;
+      padding: 0;
+    }
+    .user-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1d4ed8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+    }
+    /* Glass Card */
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+    .stat-label {
+        font-size: 0.9rem;
+        color: #94a3b8;
+    }
+    .stat-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
+    .status-badge {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .status-active { background-color: rgba(16, 185, 129, 0.2); color: #10b981;}
+    .status-paid { background-color: rgba(56, 189, 248, 0.2); color: #38bdf8;}
+    .status-defaulted { background-color: rgba(239, 68, 68, 0.2); color: #ef4444;}
+    
+    .table {
+        --bs-table-bg: transparent;
+        --bs-table-border-color: #334155;
+        --bs-table-striped-bg: rgba(51, 65, 85, 0.3);
+        --bs-table-hover-bg: rgba(51, 65, 85, 0.5);
+        --bs-table-color: #e2e8f0;
+    }
+    .table th {
+        font-weight: 600;
+        color: #94a3b8;
+    }
+    .table td {
+        vertical-align: middle;
+    }
+    .btn-outline-light-blue {
+        color: #7dd3fc;
+        border-color: #38bdf8;
+    }
+    .btn-outline-light-blue:hover {
+        color: #0f172a;
+        background-color: #38bdf8;
+        border-color: #38bdf8;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="d-flex">
+    <div class="sidebar d-flex flex-column">
+      <h4>P2P Lending</h4>
+      <a href="LoanSuggestions.html">Loan Suggestions</a>
+      <a href="MyLendings.html" class="active">My Lendings</a>
+      <a href="Wallet.html">Wallet</a>
+    </div>
+
+    <div class="flex-grow-1">
+      <div class="topbar">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none" style="color: #94a3b8;">Home</a></li>
+            <li class="breadcrumb-item active" style="color: #e2e8f0;" aria-current="page">My Lendings</li>
+          </ol>
+        </nav>
+        <div class="user-circle">G</div>
+      </div>
+
+      <div class="container-fluid p-4">
+        <h2 class="mb-4 fw-bold">My Lending Portfolio</h2>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100">
+                    <p class="stat-label">Total Investment</p>
+                    <p class="stat-value text-white">₹1,50,000</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100">
+                    <p class="stat-label">Total Interest Earned</p>
+                    <p class="stat-value" style="color: #6ee7b7;">₹12,450</p>
+                </div>
+            </div>
+             <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100">
+                    <p class="stat-label">Projected Annual Return</p>
+                    <p class="stat-value" style="color: #38bdf8;">16.8%</p>
+                </div>
+            </div>
+             <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100">
+                    <p class="stat-label">Portfolio Health</p>
+                    <p class="stat-value text-white">4 Active / 1 Defaulted</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card p-4">
+            <h4 class="mb-3">Investment Details</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Loan ID</th>
+                        <th>Amount Lent</th>
+                        <th>Interest Rate</th>
+                        <th>Interest Earned</th>
+                        <th>Principal Remaining</th>
+                        <th>Next Payment</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EDU-84321</td>
+                        <td>₹12,500</td>
+                        <td>15.0%</td>
+                        <td>₹980.20</td>
+                        <td>₹11,940</td>
+                        <td>05 Oct 2025</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-sm btn-outline-light-blue">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>BIZ-55902</td>
+                        <td>₹45,000</td>
+                        <td>22.0%</td>
+                        <td>₹3,105.50</td>
+                        <td>₹43,150</td>
+                        <td>01 Oct 2025</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-sm btn-outline-light-blue">View Details</button></td>
+                    </tr>
+                     <tr>
+                        <td>HML-10457</td>
+                        <td>₹50,000</td>
+                        <td>11.5%</td>
+                        <td>₹8,364.30</td>
+                        <td>₹0.00</td>
+                        <td>-</td>
+                        <td><span class="status-badge status-paid">Paid Off</span></td>
+                        <td><button class="btn btn-sm btn-outline-light-blue">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>CAR-30991</td>
+                        <td>₹30,000</td>
+                        <td>14.0%</td>
+                        <td>₹0.00</td>
+                        <td>₹30,000</td>
+                        <td>-</td>
+                        <td><span class="status-badge status-defaulted">Defaulted</span></td>
+                        <td><button class="btn btn-sm btn-outline-light-blue">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>PER-67823</td>
+                        <td>₹12,500</td>
+                        <td>18.0%</td>
+                        <td>₹1,250.00</td>
+                        <td>₹11,750</td>
+                        <td>10 Oct 2025</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-sm btn-outline-light-blue">View Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
