@@ -1,3 +1,4 @@
+import '../componet/FOOTER.css'
 const FOOTER =() =>{
     return(
         <footer class=" slide-in-left">

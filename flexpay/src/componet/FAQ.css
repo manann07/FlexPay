@@ -1,0 +1,12 @@
+ /* FAQ */
+    .faq-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .faq-card h5 {
+      font-weight: bold;
+    }
+

@@ -4,6 +4,7 @@ import WHY from './componet/WHY'
 import HOW from './componet/HOW'
 import FAQ from './componet/FAQ'
 import FOOTER from './componet/FOOTER'
+import './App.css'
 
 function App() {
   return (

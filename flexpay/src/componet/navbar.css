@@ -1,10 +1,10 @@
-  /* Navbar */
+ /* Navbar */
     .logo {
       height: 40px;
       border-radius: 25%;
     }
     .navbar {
-      background: var(--dark-blue);
+      /* background: var(--dark-blue); */
       padding: 1rem 2rem;
     }
     .navbar-brand {
@@ -15,7 +15,7 @@
       background: var(--orange);
       border: none;
       border-radius: 6px;
-      color: var(--text-light);
+      /* color: var(--text-light); */
       font-weight: 600;
       padding: 8px 18px;
     }

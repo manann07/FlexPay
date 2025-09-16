@@ -1,10 +1,10 @@
  :root {
       --dark-blue: #001BB7;
-      --teal: #0046FF;
-      --orange: #FF8040;
+      --teal: #4400ff;
+      --orange: #86f779;
       --light-gray: #E9E9E9;
       --text-dark: #2a2a2a;
-      --text-light: #ffffff;
+      --text-light: #e7e4ad;
     }
 
     body {
@@ -13,3 +13,15 @@
       color: var(--text-dark);
       scroll-behavior: smooth;
     }
+
+     /* Section wrapper
+    .section {
+      padding: 90px 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    } */

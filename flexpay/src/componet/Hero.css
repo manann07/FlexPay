@@ -1,4 +1,4 @@
-   /* Hero */
+  /* Hero */
     .hero {
       height: 95vh;
       display: flex;
@@ -36,7 +36,9 @@
       font-size: 1.2rem;
       border-radius: 8px;
       font-weight: 600;
-      background: var(--dark-blue);
+      background: var(--teal);
+      /* background: linear-gradient(290deg, var(--dark-blue), var(--teal)); */
+
       color: var(--text-light);
     }
     .hero .btn-lg:hover {
