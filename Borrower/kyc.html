@@ -3,425 +3,267 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FlexPay - KYC Registration (Dark Dashboard)</title>
+  <title>KYC Registration | P2P Lending</title>
 
-  <!-- Bootstrap CSS (for layout components) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Tailwind Play CDN (utility-first CSS) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    /* Additional custom styles for neon/glass effects and floating labels */
-    :root{
-      --bg-dark:#0b1220;
-      --card:#0f1724;
-      --muted:#9aa4b2;
-      --accent:#4da3ff; /* blue accent */
-      --accent-2:#6ee7b7; /* teal-ish */
-      --glass: rgba(255,255,255,0.03);
+    :root {
+      --bg-dark: #0f172a;
+      --sidebar-bg: #1e293b;
+      --card-bg: rgba(30, 41, 59, 0.6);
+      --border-color: #334155;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-gradient: linear-gradient(135deg, #38bdf8, #6366f1);
     }
 
-    html,body,#root {
-      height:100%;
-      background: radial-gradient(1200px 400px at 10% 10%, rgba(77,163,255,0.06), transparent),
-                  radial-gradient(900px 300px at 90% 90%, rgba(110,231,183,0.03), transparent),
-                  var(--bg-dark);
+    body {
+      background: var(--bg-dark);
+      color: #e2e8f0;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    /* Sidebar style (bootstrap + tailwind combined) */
+    /* Sidebar and Topbar from Loan Suggestions Page */
     .sidebar {
-      background: linear-gradient(180deg, rgba(16,24,40,0.95), rgba(14,21,34,0.95));
-      border-right: 1px solid rgba(255,255,255,0.03);
-      min-height: 100vh;
+      height: 100vh; background: var(--sidebar-bg); padding: 20px;
+      position: sticky; top: 0;
+    }
+    .sidebar h4 { color: var(--accent); margin-bottom: 30px; font-weight: bold; }
+    .sidebar a {
+      display: block; padding: 12px; margin-bottom: 10px; border-radius: 8px;
+      color: #cbd5e1; text-decoration: none; transition: 0.3s; white-space: nowrap;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: rgba(56, 189, 248, 0.15); color: var(--accent);
+    }
+    .topbar {
+      background: var(--sidebar-bg); padding: 15px 25px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .user-circle {
+      width: 40px; height: 40px; border-radius: 50%; background: #1d4ed8;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: bold;
     }
 
     /* Glass card */
-    .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    .glass-card {
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      border-radius: 16px; padding: 25px; backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
-    /* Floating label effect */
-    .floating {
-      position: relative;
+    /* Floating label Form Inputs */
+    .form-floating > .form-control, .form-floating > .form-select {
+      background: transparent; color: #e2e8f0; border-color: var(--border-color);
     }
-    .floating input,
-    .floating select {
-      background: transparent;
-      color: #e6eef8;
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 14px 12px 10px 12px;
-      border-radius: 10px;
-      width: 100%;
-      transition: box-shadow .18s, border-color .18s, transform .18s;
+    .form-floating > .form-control:focus, .form-floating > .form-select:focus {
+      outline: none; box-shadow: none; border-color: var(--accent);
     }
-    .floating label {
-      position: absolute;
-      left: 12px;
-      top: 11px;
-      color: var(--muted);
-      font-size: 0.875rem;
-      pointer-events: none;
-      transition: transform .18s, top .18s, color .18s, font-size .18s;
-      background: transparent;
-      padding: 0 6px;
-    }
-    .floating input:focus,
-    .floating select:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 6px 18px rgba(77,163,255,0.08), 0 0 10px rgba(77,163,255,0.035) inset;
-    }
-    .floating input:focus + label,
-    .floating input:not(:placeholder-shown) + label,
-    .floating select:focus + label,
-    .floating select:not([value=""]) + label {
-      top: -10px;
-      font-size: 0.72rem;
+    .form-floating > label { color: var(--muted); }
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label,
+    .form-floating > .form-select ~ label {
       color: var(--accent);
-      transform: translateY(-2px);
-      background: linear-gradient(90deg, rgba(11,18,32,0.9), rgba(11,18,32,0.85));
-      padding-left:6px;
-      padding-right:6px;
+      transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+      background: var(--card-bg);
+      padding: 0 4px;
+      border-radius: 4px;
     }
 
-    /* progress bar custom */
-    .prog-wrap { background: rgba(255,255,255,0.03); border-radius:999px; height:10px; overflow:hidden; }
-    .prog-bar { height:100%; background: linear-gradient(90deg,var(--accent),var(--accent-2)); width:0%; transition: width .5s ease; }
+    /* Progress bar */
+    .progress { height: 8px; background-color: #334155; border-radius: 999px; }
+    .progress-bar { background: var(--accent-gradient); }
 
-    /* submit gradient button */
+    /* Buttons */
     .btn-gradient {
-      background: linear-gradient(90deg,#238636,#4da3ff);
-      border: none;
-      color:white;
-      padding: 10px 18px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(36, 122, 255, 0.12);
-      transition: transform .15s, box-shadow .15s;
+      background: var(--accent-gradient); border: none; color: white; font-weight: 600;
+      padding: 10px 20px; border-radius: 8px; transition: all 0.3s ease;
     }
-    .btn-gradient:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(77,163,255,0.12); }
-
-    /* success badge */
-    .badge-kyc {
-      background: linear-gradient(90deg,#16a34a,#4ade80);
-      color:#03270b;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight:700;
-      box-shadow: 0 6px 18px rgba(16,185,129,0.08);
+    .btn-gradient:hover { opacity: 0.9; transform: scale(1.03); }
+    .btn-secondary-custom {
+      background-color: #334155; color: #e2e8f0; border: none;
     }
-
-    /* small animations */
-    .fade-in { animation: fadeUp .6s ease both; }
-    @keyframes fadeUp { from { opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
-
-    /* responsive tweaks */
-    @media (max-width: 991px) {
-      .sidebar { position: relative; min-height: auto; height:auto; border-right:none; }
-    }
+    .btn-secondary-custom:hover { background-color: #475569; }
+    
+    /* Form Step Animation */
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: fadeIn .6s ease both; }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
   </style>
 </head>
 <body>
-  <div id="root" class="min-h-screen"></div>
+  <div class="d-flex">
+    <div class="sidebar d-none d-lg-flex flex-column">
+      <h4>P2P Lending</h4>
+      <a href="kyc.html" class="active">KYC Registration</a>
+      <a href="loanrequest.html">Loan Request</a>
+      <a href="wallet.html">Wallet</a>
+      
+    </div>
 
-  <!-- React + ReactDOM + Babel (for JSX in browser) -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <div class="flex-grow-1">
+      <div class="topbar">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none" style="color: #94a3b8;">Home</a></li>
+            <li class="breadcrumb-item active" style="color: #e2e8f0;" aria-current="page">KYC Registration</li>
+          </ol>
+        </nav>
+        <div class="user-circle">G</div>
+      </div>
+      
+      <main class="p-4">
+        <div id="successMessage" class="text-center glass-card p-5" style="display: none;">
+          <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+          <h2 class="text-white mt-3">Submission Successful!</h2>
+          <p class="text-muted mt-2">Your KYC details are submitted for verification. We will notify you once the process is complete.</p>
+          <button class="btn btn-gradient mt-3" onclick="window.location.reload()">Back to Dashboard</button>
+        </div>
 
-  <!-- Main App (JSX) -->
-  <script type="text/babel">
-    const { useState, useEffect } = React;
-
-    function Sidebar({ active }) {
-      return (
-        <aside className="sidebar p-4 hidden md:block w-64 glass">
-          <div className="mb-6 flex items-center gap-3">
-            <img src="flexpaylogo.png" alt="logo" className="h-10 w-20 rounded-sm" />
-            <div>
-              <div className="text-white font-bold">FlexPay</div>
-              <div className="text-xs text-gray-400">P2P Lending</div>
-            </div>
+        <div id="kycFormContainer">
+          <div class="mb-4">
+            <h3 class="fw-bold text-white">KYC Registration</h3>
+            <p class="text-muted">Complete your profile to get verified.</p>
           </div>
 
-          <nav className="flex flex-col gap-2 text-gray-300">
-            {[
-              {k:'KYC', i:'bi-person-badge'},
-              {k:'Loan Request', i:'bi-journal-plus'},
-              {k:'Loan', i:'bi-wallet2'},
-              {k:'Wallet', i:'bi-cash-stack'}
-            ].map((item) => (
-              <div key={item.k} className={`p-3 rounded-lg ${active===item.k ? 'bg-gradient-to-r from-blue-800/40 to-sky-700/30 text-white' : 'hover:bg-white/3'}`}>
-                <i className={`bi ${item.i} me-2`}></i> {item.k}
+          <form id="kycForm" class="glass-card p-4 rounded-3">
+            <div class="d-flex justify-content-between mb-2">
+              <p id="stepTitle" class="fw-bold text-light">Step 1: Personal Details</p>
+              <p id="progressText" class="text-muted">33% Complete</p>
+            </div>
+            <div class="progress mb-4">
+              <div id="progressBar" class="progress-bar" role="progressbar" style="width: 33%;"></div>
+            </div>
+
+            <div class="form-step active" data-step="0">
+              <div class="row g-3">
+                <div class="col-md-4 form-floating">
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                  <label for="firstName">First Name</label>
+                </div>
+                <div class="col-md-4 form-floating">
+                  <input type="text" class="form-control" id="middleName" placeholder="Middle Name">
+                  <label for="middleName">Middle Name</label>
+                </div>
+                <div class="col-md-4 form-floating">
+                  <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                  <label for="lastName">Last Name</label>
+                </div>
+                <div class="col-md-6 form-floating">
+                  <input type="date" class="form-control" id="dob" placeholder="Date of Birth" required>
+                  <label for="dob">Date of Birth</label>
+                </div>
+                <div class="col-md-6 form-floating">
+                    <select class="form-select" id="maritalStatus" required><option value="" disabled selected>Select...</option><option>Single</option><option>Married</option></select>
+                    <label for="maritalStatus">Marital Status</label>
+                </div>
               </div>
-            ))}
-          </nav>
-
-          <div className="mt-8 text-sm text-gray-400">
-            <div className="mb-2">Support</div>
-            <div className="text-xs">help@flexpay.example</div>
-          </div>
-        </aside>
-      );
-    }
-
-    function Topbar({ userName }) {
-      return (
-        <header className="w-full flex items-center justify-between py-3 px-4 glass">
-          <div className="flex items-center gap-3">
-            <button className="btn btn-sm btn-outline-light d-md-none" data-bs-toggle="offcanvas" data-bs-target="#sidebarOff" aria-controls="sidebarOff">
-              <i className="bi bi-list"></i>
-            </button>
-            <nav className="text-sm text-gray-300">
-              <span className="text-gray-400">Home</span>
-              <span className="mx-2">/</span>
-              <span className="text-white font-semibold">KYC</span>
-            </nav>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="text-sm text-gray-300">Welcome, <span className="text-white font-medium">{userName}</span></div>
-            <div className="rounded-full bg-gradient-to-br from-slate-700 to-slate-900 p-2 text-white">
-              <i className="bi bi-person-circle" style={{fontSize:22}}></i>
             </div>
-          </div>
-        </header>
-      );
-    }
 
-    function FloatingInput({ id, label, type='text', value, onChange, required=false }) {
-      return (
-        <div className="floating mb-3">
-          <input
-            id={id}
-            placeholder=" "
-            value={value}
-            onChange={(e)=>onChange(e.target.value)}
-            type={type}
-            required={required}
-          />
-          <label htmlFor={id}>{label}</label>
+            <div class="form-step" data-step="1">
+              <div class="row g-3">
+                <div class="col-md-6 form-floating"><input type="text" class="form-control" id="permDistrict" placeholder="District" required><label for="permDistrict">District</label></div>
+                <div class="col-md-6 form-floating"><input type="text" class="form-control" id="permCity" placeholder="City" required><label for="permCity">City / Municipality</label></div>
+                <div class="col-md-12 form-floating"><input type="text" class="form-control" id="permStreet" placeholder="Street" required><label for="permStreet">Street / Tole</label></div>
+              </div>
+            </div>
+            
+            <div class="form-step" data-step="2">
+              <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label text-sm text-muted">PAN Card</label>
+                    <input type="file" class="form-control" id="panUpload" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-sm text-muted">Aadhaar Card</label>
+                    <input type="file" class="form-control" id="aadhaarUpload" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-between">
+              <button type="button" id="prevBtn" class="btn btn-secondary-custom">Back</button>
+              <button type="button" id="nextBtn" class="btn btn-gradient">Next Step</button>
+              <button type="submit" id="submitBtn" class="btn btn-gradient d-none">Submit for Verification</button>
+            </div>
+          </form>
         </div>
-      );
+      </main>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const kycForm = document.getElementById('kycForm');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const steps = document.querySelectorAll('.form-step');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const stepTitle = document.getElementById('stepTitle');
+
+    let currentStep = 0;
+    const stepTitles = [
+        'Step 1: Personal Details',
+        'Step 2: Address Details',
+        'Step 3: Document Upload'
+    ];
+
+    function updateForm() {
+        stepTitle.textContent = stepTitles[currentStep];
+        steps.forEach((step, index) => {
+            step.classList.toggle('active', index === currentStep);
+        });
+
+        const progress = ((currentStep + 1) / steps.length) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${Math.round(progress)}% Complete`;
+
+        prevBtn.style.display = currentStep === 0 ? 'none' : 'inline-block';
+        nextBtn.style.display = currentStep === steps.length - 1 ? 'none' : 'inline-block';
+        submitBtn.style.display = currentStep === steps.length - 1 ? 'inline-block' : 'none';
     }
 
-    function FloatingSelect({ id, label, value, onChange, options=[] }) {
-      return (
-        <div className="floating mb-3">
-          <select id={id} value={value} onChange={(e)=>onChange(e.target.value)}>
-            <option value="">Select</option>
-            {options.map(o => <option key={o} value={o}>{o}</option>)}
-          </select>
-          <label htmlFor={id}>{label}</label>
-        </div>
-      );
+    function validateStep() {
+        const currentStepFields = steps[currentStep].querySelectorAll('[required]');
+        for (const field of currentStepFields) {
+            if (!field.value.trim()) {
+                alert(`Please fill out all required fields.`);
+                field.focus();
+                return false;
+            }
+        }
+        return true;
     }
 
-    function KYCForm() {
-      const [step, setStep] = useState(0); // 0,1,2
-      const [progress, setProgress] = useState(33);
-      const [submitted, setSubmitted] = useState(false);
+    nextBtn.addEventListener('click', () => {
+        if (validateStep()) {
+            currentStep++;
+            updateForm();
+        }
+    });
 
-      const [personal, setPersonal] = useState({
-        firstName:'', middleName:'', lastName:'', dob:'', gender:'', marital:''
-      });
-      const [perm, setPerm] = useState({ district:'', province:'', municipality:'', ward:'', tole:''});
-      const [temp, setTemp] = useState({ district:'', province:'', municipality:'', ward:'', tole:''});
+    prevBtn.addEventListener('click', () => {
+        currentStep--;
+        updateForm();
+    });
 
-      useEffect(()=> {
-        setProgress(((step+1)/3)*100);
-      },[step]);
-
-      function nextStep() {
-        if (step < 2) setStep(s=>s+1);
-      }
-      function prevStep() {
-        if (step > 0) setStep(s=>s-1);
-      }
-
-      function handleSubmit(e) {
+    kycForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        // simulate API call / validation
-        setTimeout(()=> {
-          setSubmitted(true);
-          // scroll top
-          window.scrollTo({top:0, behavior:'smooth'});
-        }, 700);
-      }
+        if (validateStep()) {
+            document.getElementById('kycFormContainer').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    });
 
-      // small helper to update nested states
-      function setPersonalField(key, val){ setPersonal(p=>({...p,[key]:val})); }
-      function setPermField(key, val){ setPerm(p=>({...p,[key]:val})); }
-      function setTempField(key, val){ setTemp(t=>({...t,[key]:val})); }
+    updateForm();
+});
+</script>
 
-      return (
-        <div className="flex-1 p-6">
-          <div className="mb-4 flex items-center justify-between">
-            <div>
-              <h3 className="text-2xl font-semibold text-white">KYC Registration</h3>
-              <div className="text-sm text-gray-400 mt-1">Complete your profile to get KYC verified</div>
-            </div>
-            <div>
-              {submitted ? <span className="badge-kyc">KYC Verified</span> : <span className="text-sm text-gray-400">Progress</span>}
-            </div>
-          </div>
-
-          <div className="glass p-4 rounded-xl mb-4 fade-in">
-            {/* progress */}
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <div className="text-sm text-gray-300">Step {step+1} of 3</div>
-              <div className="text-sm text-gray-400">{Math.round(progress)}%</div>
-            </div>
-            <div className="prog-wrap mb-3">
-              <div className="prog-bar" style={{width: `${progress}%`}} />
-            </div>
-
-            <form onSubmit={handleSubmit}>
-              {/* Step 1: Personal */}
-              {step === 0 && (
-                <div className="grid md:grid-cols-3 gap-4">
-                  <FloatingInput id="first" label="First Name" value={personal.firstName} onChange={(v)=>setPersonalField('firstName',v)} required />
-                  <FloatingInput id="middle" label="Middle Name" value={personal.middleName} onChange={(v)=>setPersonalField('middleName',v)} />
-                  <FloatingInput id="last" label="Last Name" value={personal.lastName} onChange={(v)=>setPersonalField('lastName',v)} required />
-
-                  <FloatingInput id="dob" label="Date of Birth" type="date" value={personal.dob} onChange={(v)=>setPersonalField('dob',v)} required />
-                  <FloatingSelect id="marital" label="Marital Status" value={personal.marital} onChange={(v)=>setPersonalField('marital',v)} options={['Single','Married','Divorced','Widowed']} />
-                  <FloatingSelect id="gender" label="Gender" value={personal.gender} onChange={(v)=>setPersonalField('gender',v)} options={['Male','Female','Other']} />
-                </div>
-              )}
-
-              {/* Step 2: Permanent */}
-              {step === 1 && (
-                <div className="grid md:grid-cols-2 gap-4">
-                  <FloatingInput id="perm-district" label="District" value={perm.district} onChange={(v)=>setPermField('district',v)} required />
-                  <FloatingSelect id="perm-province" label="Province" value={perm.province} onChange={(v)=>setPermField('province',v)} options={['Province 1','Province 2','Province 3','Province 4']} />
-                  <FloatingInput id="perm-municipality" label="Municipality" value={perm.municipality} onChange={(v)=>setPermField('municipality',v)} />
-                  <FloatingInput id="perm-ward" label="Ward No." value={perm.ward} onChange={(v)=>setPermField('ward',v)} />
-                  <FloatingInput id="perm-tole" label="Tole" value={perm.tole} onChange={(v)=>setPermField('tole',v)} />
-                </div>
-              )}
-
-              {/* Step 3: Temporary */}
-              {step === 2 && (
-                <div className="grid md:grid-cols-2 gap-4">
-                  <FloatingInput id="temp-district" label="District" value={temp.district} onChange={(v)=>setTempField('district',v)} required />
-                  <FloatingSelect id="temp-province" label="Province" value={temp.province} onChange={(v)=>setTempField('province',v)} options={['Province 1','Province 2','Province 3','Province 4']} />
-                  <FloatingInput id="temp-municipality" label="Municipality" value={temp.municipality} onChange={(v)=>setTempField('municipality',v)} />
-                  <FloatingInput id="temp-ward" label="Ward No." value={temp.ward} onChange={(v)=>setTempField('ward',v)} />
-                  <FloatingInput id="temp-tole" label="Tole" value={temp.tole} onChange={(v)=>setTempField('tole',v)} />
-                </div>
-              )}
-
-              <div className="mt-5 flex items-center gap-3">
-                <button type="button" className="btn btn-light text-slate-800" onClick={prevStep} disabled={step===0}>Back</button>
-
-                {step < 2 && (
-                  <button type="button" className="btn btn-primary" onClick={nextStep}>Next</button>
-                )}
-
-                {step === 2 && (
-                  <button type="submit" className="btn-gradient ms-auto">Submit & Verify</button>
-                )}
-              </div>
-            </form>
-          </div>
-
-          {/* small help / summary */}
-          <div className="glass p-4 rounded-xl fade-in">
-            <h6 className="text-white font-semibold">Summary</h6>
-            <div className="text-sm text-gray-300 mt-2">
-              <div><strong>Personal:</strong> {personal.firstName || '—'} {personal.lastName || ''} • {personal.gender || '—'}</div>
-              <div><strong>Permanent:</strong> {perm.district || '—'}, {perm.province || ''}</div>
-              <div><strong>Temporary:</strong> {temp.district || '—'}, {temp.province || ''}</div>
-            </div>
-          </div>
-
-        </div>
-      );
-    }
-    function Sidebar({ active }) {
-  return (
-    <aside className="sidebar p-4 hidden md:block w-64 glass">
-      <div className="mb-6 flex items-center gap-3">
-        <img src="flexpaylogo.png" alt="logo" className="h-10 w-20 rounded-sm" />
-        <div>
-          <div className="text-white font-bold">FlexPay</div>
-          <div className="text-xs text-gray-400">P2P Lending</div>
-        </div>
-      </div>
-
-      <nav className="flex flex-col gap-2 text-gray-300">
-        {[
-          { k: "KYC", i: "bi-person-badge", link: "kyc.html" },
-          { k: "Loan Request", i: "bi-journal-plus", link: "loanrequest.html" },
-          { k: "Loan", i: "bi-wallet2", link: "loan.html" },
-          { k: "Wallet", i: "bi-cash-stack", link: "wallet.html" },
-        ].map((item) => (
-          <a
-            key={item.k}
-            href={item.link}
-            className={`p-3 rounded-lg d-flex align-items-center ${
-              active === item.k
-                ? "bg-gradient-to-r from-blue-800/40 to-sky-700/30 text-white"
-                : "hover:bg-white/3 text-gray-300"
-            }`}
-            style={{ textDecoration: "none" }}
-          >
-            <i className={`bi ${item.i} me-2`}></i> {item.k}
-          </a>
-        ))}
-      </nav>
-
-      <div className="mt-8 text-sm text-gray-400">
-        <div className="mb-2">Support</div>
-        <div className="text-xs">help@flexpay.example</div>
-      </div>
-    </aside>
-  );
-}
-
-    function App() {
-      const [userName] = useState('Borrower'); // dummy
-      const [active] = useState('KYC');
-
-      return (
-        <div className="min-h-screen flex flex-col md:flex-row">
-          {/* Offcanvas for mobile sidebar (Bootstrap) */}
-          <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebarOff" aria-labelledby="sidebarOffLabel">
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="sidebarOffLabel">FlexPay</h5>
-              <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div className="offcanvas-body p-0">
-              <Sidebar active={active} />
-            </div>
-          </div>
-
-          <div className="hidden md:block">
-            <Sidebar active={active} />
-          </div>
-
-          <div className="flex-1 min-h-screen flex flex-col">
-            <Topbar userName={userName} />
-            <main className="flex-1 overflow-auto p-4 md:p-6">
-              <KYCForm />
-            </main>
-          </div>
-        </div>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
-
-  <!-- Bootstrap JS bundle (for offcanvas) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
 </body>
 </html>
