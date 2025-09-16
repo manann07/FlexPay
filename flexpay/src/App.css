@@ -1,0 +1,15 @@
+ :root {
+      --dark-blue: #001BB7;
+      --teal: #0046FF;
+      --orange: #FF8040;
+      --light-gray: #E9E9E9;
+      --text-dark: #2a2a2a;
+      --text-light: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light-gray);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
