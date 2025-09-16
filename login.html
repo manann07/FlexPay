@@ -139,34 +139,38 @@
       <!-- Login Form -->
       <div class="side front">
         <h2>Welcome Back</h2>
-        <div class="inputBox">
-          <input type="text" required>
-          <label>Username</label>
-        </div>
-        <div class="inputBox">
-          <input type="password" required>
-          <label>Password</label>
-        </div>
-        <button>Login</button>
+        <form onsubmit="handleLogin(event)">
+          <div class="inputBox">
+            <input type="text" required>
+            <label>Username</label>
+          </div>
+          <div class="inputBox">
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <button type="submit">Login</button>
+        </form>
         <div class="toggle" onclick="flipCard()">Don’t have an account? Sign up</div>
       </div>
 
       <!-- Signup Form -->
       <div class="side back">
         <h2>Create Account</h2>
-        <div class="inputBox">
-          <input type="text" required>
-          <label>Full Name</label>
-        </div>
-        <div class="inputBox">
-          <input type="email" required>
-          <label>Email</label>
-        </div>
-        <div class="inputBox">
-          <input type="password" required>
-          <label>Password</label>
-        </div>
-        <button>Register</button>
+        <form onsubmit="handleLogin(event)">
+          <div class="inputBox">
+            <input type="text" required>
+            <label>Full Name</label>
+          </div>
+          <div class="inputBox">
+            <input type="email" required>
+            <label>Email</label>
+          </div>
+          <div class="inputBox">
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <button type="submit">Register</button>
+        </form>
         <div class="toggle" onclick="flipCard()">Already registered? Login</div>
       </div>
     </div>
@@ -175,6 +179,13 @@
   <script>
     function flipCard() {
       document.querySelector(".container").classList.toggle("flip");
+    }
+
+    // Dummy Login/Signup function
+    function handleLogin(event) {
+      event.preventDefault(); // form reload na ho
+      // yaha koi bhi input daale chalega
+      window.location.href = "borrower/kyc.html"; // redirect to kyc.html
     }
   </script>
 </body>
