@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1f1f2e, #111);
-      color: #fff;
     }
 
     .container {
@@ -131,51 +115,3 @@
     .back {
       transform: rotateY(180deg);
     }
-  </style>
-</head>
-<body>
-  <div className="container">
-    <div className="card">
-      <!-- Login Form -->
-      <div className="side front">
-        <h2>Welcome Back</h2>
-        <div className="inputBox">
-          <input type="text" required>
-          <label>Username</label>
-        </div>
-        <div className="inputBox">
-          <input type="password" required>
-          <label>Password</label>
-        </div>
-        <button>Login</button>
-        <div className="toggle" onclick="flipCard()">Don’t have an account? Sign up</div>
-      </div>
-
-      <!-- Signup Form -->
-      <div className="side back">
-        <h2>Create Account</h2>
-        <div className="inputBox">
-          <input type="text" required>
-          <label>Full Name</label>
-        </div>
-        <div className="inputBox">
-          <input type="email" required>
-          <label>Email</label>
-        </div>
-        <div className="inputBox">
-          <input type="password" required>
-          <label>Password</label>
-        </div>
-        <button>Register</button>
-        <div className="toggle" onclick="flipCard()">Already registered? Login</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function flipCard() {
-      document.querySelector(".container").classList.toggle("flip");
-    }
-  </script>
-</body>
-</html>

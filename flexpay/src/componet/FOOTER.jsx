@@ -1,19 +1,19 @@
 import '../componet/FOOTER.css'
 const FOOTER =() =>{
     return(
-        <footer class=" slide-in-left">
-  <div class="container footer ">
-    <div class="row g-4">
+        <footer className=" slide-in-left">
+  <div className="container footer ">
+    <div className="row g-4">
       {/* <!-- About --> */}
-      <div class="col-md-4">
-        <h5 class="footer-title">FlexPay</h5>
+      <div className="col-md-4">
+        <h5 className="footer-title">FlexPay</h5>
         <p>FlexPay is a P2P lending platform empowering individuals to borrow at lower rates and lend at higher returns. Secure. Transparent. Instant.</p>
       </div>
       
       {/* <!-- Quick Links --> */}
-      <div class="col-md-2">
-        <h6 class="footer-subtitle">Quick Links</h6>
-        <ul class="list-unstyled">
+      <div className="col-md-2">
+        <h6 className="footer-subtitle">Quick Links</h6>
+        <ul className="list-unstyled">
           <li><a href="#why">Why FlexPay</a></li>
           <li><a href="#how">How It Works</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -23,31 +23,31 @@ const FOOTER =() =>{
       </div>
 
       {/* <!-- Contact --> */}
-      <div class="col-md-3">
-        <h6 class="footer-subtitle">Contact</h6>
-        <ul class="list-unstyled">
-          <li><i class="bi bi-envelope-fill me-2"></i> support@flexpay.com</li>
-          <li><i class="bi bi-telephone-fill me-2"></i> +91 98765 43210</li>
-          <li><i class="bi bi-geo-alt-fill me-2"></i> MANIT, Bhopal, India</li>
+      <div className="col-md-3">
+        <h6 className="footer-subtitle">Contact</h6>
+        <ul className="list-unstyled">
+          <li><i className="bi bi-envelope-fill me-2"></i> support@flexpay.com</li>
+          <li><i className="bi bi-telephone-fill me-2"></i> +91 98765 43210</li>
+          <li><i className="bi bi-geo-alt-fill me-2"></i> MANIT, Bhopal, India</li>
         </ul>
       </div>
 
       {/* <!-- Socials -->// */}
-      <div class="col-md-3">
-        <h6 class="footer-subtitle">Follow Us</h6>
-        <div class="social-icons">
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter"></i></a>
-          <a href="#"><i class="bi bi-linkedin"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
+      <div className="col-md-3">
+        <h6 className="footer-subtitle">Follow Us</h6>
+        <div className="social-icons">
+          <a href="#"><i className="bi bi-facebook"></i></a>
+          <a href="#"><i className="bi bi-twitter"></i></a>
+          <a href="#"><i className="bi bi-linkedin"></i></a>
+          <a href="#"><i className="bi bi-instagram"></i></a>
         </div>
       </div>
     </div>
 
-    {/* <hr class="footer-divider"> */}
+    {/* <hr className="footer-divider"> */}
 
-    <div class="text-center mt-3">
-      <p class="mb-0">© 2025 FlexPay | Built at MANIT Bhopal | All Rights Reserved</p>
+    <div className="text-center mt-3">
+      <p className="mb-0">© 2025 FlexPay | Built at MANIT Bhopal | All Rights Reserved</p>
     </div>
   </div>
 </footer>

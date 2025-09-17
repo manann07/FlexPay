@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1f1f2e, #111);
-      font-family: "Segoe UI", sans-serif;
-    }
 
     .container {
       width: 420px;
       padding: 40px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      /* background: rgba(255, 255, 255, 0.05); */
+      /* border: 1px solid rgba(255, 255, 255, 0.2); */
+      /* border-radius: 15px; */
+      /* backdrop-filter: blur(10px); */
+      /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); */
       color: #fff;
     }
 
@@ -96,24 +81,3 @@
     .link a:hover {
       text-decoration: underline;
     }
-  </style>
-</head>
-<body>
-  <div className="container">
-    <h2>Register</h2>
-    <form action="#" method="post">
-      <div className="radio-group">
-        <label><input type="radio" name="role" value="borrower" required> Borrower</label>
-        <label><input type="radio" name="role" value="lender" required> Lender</label>
-      </div>
-      <div className="inputBox">
-        <input type="email" required placeholder="Email Address">
-      </div>
-      <button type="submit">Next</button>
-    </form>
-    <div className="link">
-      Already have an account? <a href="login.html">Login Here</a>
-    </div>
-  </div>
-</body>
-</html>

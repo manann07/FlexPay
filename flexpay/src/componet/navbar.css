@@ -4,7 +4,7 @@
       border-radius: 25%;
     }
     .navbar {
-      /* background: var(--dark-blue); */
+      background: none;
       padding: 1rem 2rem;
     }
     .navbar-brand {
