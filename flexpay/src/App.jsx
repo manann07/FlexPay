@@ -6,20 +6,30 @@ import FAQ from './componet/FAQ'
 import FOOTER from './componet/FOOTER'
 import Login from "./pages/login"
 import Register from "./pages/register"
+import Home from './pages/Home'
+import Contact from './pages/Contact'
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes,Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './App.css'
-
+import RootLayout from './layout/Rootlayout'
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<RootLayout/>}>
+        <Route index element={<Home/>} />
+          <Route path ='why-us' element={<WHY/>} />
+          <Route path ='How-it-works' element={<HOW/>} />
+      </Route>
+    )
+  )
   return (
     <>
-      <Navbar/>
-       
-      <Hero/>
+      <RouterProvider router={router}/>
+      {/* <Hero/>
       <WHY/>
       <HOW/>
       <FAQ/>
-      <FOOTER/>
+      <FOOTER/> */}
     </>
   )
 }

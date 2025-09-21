@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Request - FlexPay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Poppins', sans-serif;
+    }
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      background: #1e293b;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 20px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px;
+      margin: 8px 0;
+      color: #94a3b8;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .sidebar a:hover {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: white;
+    }
+    .topbar {
+      margin-left: 240px;
+      height: 60px;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .content {
+      margin-left: 260px;
+      padding: 30px;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .form-card {
+      background: rgba(30,41,59,0.7);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+    }
+    .form-control, .form-select {
+      background: transparent;
+      border: 1px solid #3b82f6;
+      color: #e2e8f0;
+    }
+    .form-control:focus, .form-select:focus {
+      box-shadow: 0 0 10px #06b6d4;
+      border-color: #06b6d4;
+      background: transparent;
+      color: #fff;
+    }
+    .progress {
+      height: 8px;
+      border-radius: 10px;
+      background: #334155;
+    }
+    .progress-bar {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    }
+    .btn-submit {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      transition: all 0.3s;
+    }
+    .btn-submit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #3b82f6;
+    }
+    .success-badge {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+          <div className="hidden md:block">
+            <Sidebar active={active} />
+          </div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <span class="text-gray-400">Home / Loan Request</span>
+    <div class="text-white">User Profile</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h2 class="text-white mb-4">Loan Request</h2>
+    
+    <!-- Progress Bar -->
+    <div class="progress mb-4">
+      <div class="progress-bar" id="progressBar" style="width: 33%;"></div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-card">
+      <form id="loanForm">
+        <!-- Step 1: Loan Details -->
+        <div class="step step-1">
+          <h5>Loan Details</h5>
+          <div class="row g-3 mt-2">
+            <div class="col-md-6">
+              <label class="form-label">Loan Amount</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Interest Rate (%)</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Tenure (Months)</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Purpose</label>
+              <input type="text" class="form-control" required>
+            </div>
+          </div>
+          <button type="button" class="btn btn-submit mt-3 next">Next</button>
+        </div>
+
+        <!-- Step 2: Collateral -->
+        <div class="step step-2 d-none">
+          <h5>Collateral</h5>
+          <div class="row g-3 mt-2">
+            <div class="col-md-6">
+              <label class="form-label">Collateral Available?</label>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Collateral Details</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <button type="button" class="btn btn-submit mt-3 prev">Back</button>
+          <button type="button" class="btn btn-submit mt-3 next">Next</button>
+        </div>
+
+        <!-- Step 3: Income Proof -->
+        <div class="step step-3 d-none">
+          <h5>Income Proof</h5>
+          <div class="mb-3">
+            <label class="form-label">Upload Documents</label>
+            <input type="file" class="form-control" required>
+          </div>
+          <button type="button" class="btn btn-submit mt-3 prev">Back</button>
+          <button type="submit" class="btn btn-submit mt-3">Submit</button>
+        </div>
+      </form>
+
+      <!-- Success Badge -->
+      <div class="alert alert-success success-badge">✅ Loan Request Submitted Successfully!</div>
+    </div>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".step");
+    const progressBar = document.getElementById("progressBar");
+    let currentStep = 0;
+
+    document.querySelectorAll(".next").forEach(btn => {
+      btn.addEventListener("click", () => {
+        steps[currentStep].classList.add("d-none");
+        currentStep++;
+        steps[currentStep].classList.remove("d-none");
+        progressBar.style.width = ((currentStep+1)/steps.length)*100 + "%";
+      });
+    });
+
+    document.querySelectorAll(".prev").forEach(btn => {
+      btn.addEventListener("click", () => {
+        steps[currentStep].classList.add("d-none");
+        currentStep--;
+        steps[currentStep].classList.remove("d-none");
+        progressBar.style.width = ((currentStep+1)/steps.length)*100 + "%";
+      });
+    });
+
+    document.getElementById("loanForm").addEventListener("submit", e => {
+      e.preventDefault();
+      document.querySelector(".success-badge").style.display = "block";
+    });
+  </script>
+</body>
+</html>
