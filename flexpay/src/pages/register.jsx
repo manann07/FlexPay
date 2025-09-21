@@ -21,8 +21,11 @@ function Register() {
         name, email, contact_no, password,
         pan_no, aadhar_no, role: "borrower" // or allow selection
       };
-      const res = await api.post("/register/", payload);
+      // For now, just simulate successful registration
+      console.log("Registration payload:", payload);
+      // const res = await api.post("/register/", payload);
       // After successful registration you can redirect to login
+      alert("Registration successful! (This is a demo - no actual API call made)");
       navigate("/login");
     } catch (err) {
       console.error(err);

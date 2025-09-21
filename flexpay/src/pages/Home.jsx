@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Features from '../componet/Features'
 import WHY from '../componet/WHY'
 import HOW from '../componet/HOW'
+import FAQ from '../componet/FAQ'
 import FOOTER from '../componet/FOOTER'
 
 const Home = () =>{
@@ -128,6 +129,9 @@ const Home = () =>{
 
             {/* How It Works Section */}
             <HOW />
+
+            {/* FAQ Section */}
+            <FAQ />
 
             {/* Footer */}
             <FOOTER />

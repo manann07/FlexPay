@@ -12,13 +12,15 @@ function Login() {
     e.preventDefault();
     setError(null);
     try {
-      // Use your backend endpoint, e.g., /auth/login/ or /login/
-      const res = await api.post("/login/", { email, password });
+      // For now, just simulate successful login
+      console.log("Login attempt:", { email, password });
+      // const res = await api.post("/login/", { email, password });
       // Example response: { token: "...", user: {...} }
-      const token = res.data.token;
+      // const token = res.data.token;
       // store token for later API calls
-      localStorage.setItem("token", token);
+      // localStorage.setItem("token", token);
       // redirect to dashboard or home
+      alert("Login successful! (This is a demo - no actual API call made)");
       navigate("/");
     } catch (err) {
       console.error(err);
