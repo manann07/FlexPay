@@ -1,0 +1,25 @@
+ /* Navbar */
+    .logo {
+      height: 40px;
+      border-radius: 25%;
+    }
+    .navbar {
+      background: none;
+      padding: 1rem 2rem;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--orange) !important;
+    }
+    .navbar .btn-primary {
+      background: var(--orange);
+      border: none;
+      border-radius: 6px;
+      /* color: var(--text-light); */
+      font-weight: 600;
+      padding: 8px 18px;
+    }
+    .navbar .btn-primary:hover {
+      background: var(--teal);
+      color: var(--text-light);
+    }

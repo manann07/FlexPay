@@ -1,0 +1,117 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 380px;
+      height: 480px;
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+    }
+
+    .flip .card {
+      transform: rotateY(180deg);
+    }
+
+    .side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+    }
+
+    .side h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #f1f1f1;
+      font-weight: 600;
+    }
+
+    .inputBox {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .inputBox input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-bottom: 2px solid #777;
+      outline: none;
+      font-size: 15px;
+      background: transparent;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .inputBox label {
+      position: absolute;
+      left: 0;
+      top: 12px;
+      pointer-events: none;
+      transition: 0.3s;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .inputBox input:focus {
+      border-bottom: 2px solid #4da3ff;
+    }
+
+    .inputBox input:focus ~ label,
+    .inputBox input:valid ~ label {
+      top: -12px;
+      font-size: 12px;
+      color: #4da3ff;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      background: #4da3ff;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1f7ae0;
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #bbb;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle:hover {
+      color: #4da3ff;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }

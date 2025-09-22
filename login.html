@@ -134,11 +134,23 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
+  <div className="container">
+    <div className="card">
       <!-- Login Form -->
-      <div class="side front">
+      <div className="side front">
         <h2>Welcome Back</h2>
+<<<<<<< HEAD
+        <div className="inputBox">
+          <input type="text" required>
+          <label>Username</label>
+        </div>
+        <div className="inputBox">
+          <input type="password" required>
+          <label>Password</label>
+        </div>
+        <button>Login</button>
+        <div className="toggle" onclick="flipCard()">Don’t have an account? Sign up</div>
+=======
         <form onsubmit="handleLogin(event)">
           <div class="inputBox">
             <input type="text" required>
@@ -151,11 +163,28 @@
           <button type="submit">Login</button>
         </form>
         <div class="toggle" onclick="flipCard()">Don’t have an account? Sign up</div>
+>>>>>>> main
       </div>
 
       <!-- Signup Form -->
-      <div class="side back">
+      <div className="side back">
         <h2>Create Account</h2>
+<<<<<<< HEAD
+        <div className="inputBox">
+          <input type="text" required>
+          <label>Full Name</label>
+        </div>
+        <div className="inputBox">
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+        <div className="inputBox">
+          <input type="password" required>
+          <label>Password</label>
+        </div>
+        <button>Register</button>
+        <div className="toggle" onclick="flipCard()">Already registered? Login</div>
+=======
         <form onsubmit="handleLogin(event)">
           <div class="inputBox">
             <input type="text" required>
@@ -172,6 +201,7 @@
           <button type="submit">Register</button>
         </form>
         <div class="toggle" onclick="flipCard()">Already registered? Login</div>
+>>>>>>> main
       </div>
     </div>
   </div>

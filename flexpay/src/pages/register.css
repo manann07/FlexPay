@@ -1,0 +1,83 @@
+
+    .container {
+      width: 420px;
+      padding: 40px;
+      /* background: rgba(255, 255, 255, 0.05); */
+      /* border: 1px solid rgba(255, 255, 255, 0.2); */
+      /* border-radius: 15px; */
+      /* backdrop-filter: blur(10px); */
+      /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); */
+      color: #fff;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .radio-group {
+      margin-bottom: 20px;
+    }
+
+    .radio-group label {
+      margin-right: 20px;
+      font-size: 15px;
+    }
+
+    .inputBox {
+      margin-bottom: 20px;
+    }
+
+    .inputBox input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-bottom: 2px solid #777;
+      background: transparent;
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .inputBox input:focus {
+      border-bottom: 2px solid #4da3ff;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      background: #4da3ff;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1f7ae0;
+    }
+
+    .link {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .link a {
+      color: #4da3ff;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
