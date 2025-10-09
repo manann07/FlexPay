@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Home, Wallet, FileText, CheckSquare } from "lucide-react"; // icons
+import LOGO01 from '../assets/LOGO01.png'
 
 import TopBar from "./topbar";
 
 export default function Dashboard() {
-  const [userType, setUserType] = useState("lender");
+  const [userType, setUserType] = useState("borrower");
 
   const lenderNav = [
     { name: "Loan Suggestions", icon: FileText, href: "/loan-suggestions" },
@@ -21,12 +22,19 @@ export default function Dashboard() {
   const navigation = userType === "lender" ? lenderNav : borrowerNav;
 
   return (
-    <div className=" flex justify-start flex min-h-screen bg-[#67C090]">
+    <div className=" flex justify-start flex min-h-screen bg-white/80 backdrop-blur-md">
                 {/* topbar */}
         {/* <TopBar currentPage="My Lendings" userInitial="G" /> */}
       {/* Sidebar */}
-      <aside className="w-64 bg-[#67C090] p-6 text-white">
-        <h2 className="text-xl font-bold mb-6">FlexPay</h2>
+      <aside className="w-64 p-6 text-white ">
+        {/* Logo */}
+          <div className="flex items-center space-x-3 px-3 py-2 ">
+            <img src={LOGO01} alt="FlexPay Logo" className="h-6 w-10" />
+            <span className="text-2xl font-bold text-gray-600 tracking-tight">
+              <span className=" mb-6 text-[#67C090 ]">FLEX</span>PAY</span>
+          </div>
+
+          {/* main  */}
         <nav className="space-y-3">
           {navigation.map((item) => (
             <a

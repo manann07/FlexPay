@@ -17,25 +17,27 @@ import Dashboard  from './componet/dashboard'
 import MyLending from './pages/my-Lendings'
 import WalletPage from './pages/wallet'
 import LoanSuggestions from './pages/loanSuggestions'
+import KycRegistration from './pages/KYC_Registration'
+import LoanRequest from './pages/LoanRequest'
 
 function App() {
-  // const router = createBrowserRouter(
-  //   createRoutesFromElements(
-  //     <>
-  //     <Route path='/' element={<RootLayout/>}>
-  //       <Route index element={<Home/>} />
-  //       <Route path='why-us' element={<WHY/>} />
-  //       <Route path='How-it-works' element={<HOW/>} />
-  //     </Route>
-  //     <Route path='login' element={<Login/>} />
-  //       <Route path='register' element={<Register/>} />
-  //     </>
-  //   )
-  // )
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+      <Route path='/' element={<RootLayout/>}>
+        <Route index element={<Home/>} />
+        <Route path='why-us' element={<WHY/>} />
+        <Route path='How-it-works' element={<HOW/>} />
+      </Route>
+      <Route path='login' element={<Login/>} />
+        <Route path='register' element={<Register/>} />
+      </>
+    )
+  )
   return (
     <>
-      {/* <RouterProvider router={router}/> */}
-      <LoanSuggestions/>
+      <RouterProvider router={router}/>
+      {/* <WalletPage/> */}
       
     </>
   )
