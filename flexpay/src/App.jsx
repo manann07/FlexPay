@@ -15,13 +15,15 @@ import RootLayout from './layout/Rootlayout'
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
+      <>
       <Route path='/' element={<RootLayout/>}>
         <Route index element={<Home/>} />
         <Route path='why-us' element={<WHY/>} />
         <Route path='How-it-works' element={<HOW/>} />
-        <Route path='login' element={<Login/>} />
-        <Route path='register' element={<Register/>} />
       </Route>
+      <Route path='login' element={<Login/>} />
+        <Route path='register' element={<Register/>} />
+      </>
     )
   )
   return (
