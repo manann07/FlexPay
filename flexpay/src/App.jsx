@@ -16,6 +16,7 @@ import RootLayout from './layout/Rootlayout'
 import Dashboard  from './componet/dashboard'
 import MyLending from './pages/my-Lendings'
 import WalletPage from './pages/wallet'
+import LoanSuggestions from './pages/loanSuggestions'
 
 function App() {
   // const router = createBrowserRouter(
@@ -34,7 +35,7 @@ function App() {
   return (
     <>
       {/* <RouterProvider router={router}/> */}
-      <MyLending/>
+      <LoanSuggestions/>
       
     </>
   )

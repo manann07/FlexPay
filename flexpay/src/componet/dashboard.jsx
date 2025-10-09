@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Home, Wallet, FileText, CheckSquare } from "lucide-react"; // icons
 
+import TopBar from "./topbar";
+
 export default function Dashboard() {
   const [userType, setUserType] = useState("lender");
 
@@ -19,8 +21,9 @@ export default function Dashboard() {
   const navigation = userType === "lender" ? lenderNav : borrowerNav;
 
   return (
-    <div className="flex min-h-screen bg-white ">
-        
+    <div className=" flex justify-start flex min-h-screen bg-[#67C090]">
+                {/* topbar */}
+        {/* <TopBar currentPage="My Lendings" userInitial="G" /> */}
       {/* Sidebar */}
       <aside className="w-64 bg-[#67C090] p-6 text-white">
         <h2 className="text-xl font-bold mb-6">FlexPay</h2>

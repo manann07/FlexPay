@@ -1,5 +1,6 @@
 import React from "react";
 import Dashboard from "../componet/dashboard";
+import TopBar from "../componet/topbar";
 
 export default function MyLending() {
   const investments = [
@@ -68,11 +69,13 @@ export default function MyLending() {
         {/* sidebar  */}
         <Dashboard/>
     
+   {/* Right Section */}
+      <div className="flex flex-col flex-1">
+        {/* Top Navbar */}
+        <TopBar currentPage="Investment Opportunities" userInitial="G" />
 
-      {/* Main Content */}
-      <div className="flex-1">
 
-        <div className="p-6">
+        <div className="flex-1 p-6 pt-20">
           <h2 className="text-2xl font-bold mb-6">My Lending Portfolio</h2>
 
           {/* Stats */}
@@ -143,6 +146,6 @@ export default function MyLending() {
           </div>
         </div>
       </div>
-    </div>
+     </div> 
   );
 }
