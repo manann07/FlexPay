@@ -99,45 +99,21 @@
   </style>
 </head>
 <body>
-  <div className="container">
+  <div class="container">
     <h2>Register</h2>
     <form action="#" method="post">
-      <div className="radio-group">
-    <!-- Form -->
-    <form id="registerForm">
       <div class="radio-group">
         <label><input type="radio" name="role" value="borrower" required> Borrower</label>
         <label><input type="radio" name="role" value="lender" required> Lender</label>
       </div>
-      <div className="inputBox">
+      <div class="inputBox">
         <input type="email" required placeholder="Email Address">
       </div>
       <button type="submit">Next</button>
     </form>
-    <div className="link">
-
-    <!-- Already account -->
     <div class="link">
       Already have an account? <a href="login.html">Login Here</a>
     </div>
   </div>
-
-  <script>
-    // Jab form submit hoga tab role check karenge
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // default form submit band
-      let role = document.querySelector("input[name='role']:checked").value;
-
-      if (role === "borrower") {
-        // agar borrower select kiya
-        window.location.href = "borrower/kyc.html";
-      } else if (role === "lender") {
-        // agar lender select kiya
-        window.location.href = "lender/LoanSuggestions.html";
-      } else {
-        alert("Please select a role!");
-      }
-    });
-  </script>
 </body>
 </html>

@@ -134,74 +134,40 @@
   </style>
 </head>
 <body>
-  <div className="container">
-    <div className="card">
+  <div class="container">
+    <div class="card">
       <!-- Login Form -->
-      <div className="side front">
+      <div class="side front">
         <h2>Welcome Back</h2>
-<<<<<<< HEAD
-        <div className="inputBox">
+        <div class="inputBox">
           <input type="text" required>
           <label>Username</label>
         </div>
-        <div className="inputBox">
+        <div class="inputBox">
           <input type="password" required>
           <label>Password</label>
         </div>
         <button>Login</button>
-        <div className="toggle" onclick="flipCard()">Don’t have an account? Sign up</div>
-=======
-        <form onsubmit="handleLogin(event)">
-          <div class="inputBox">
-            <input type="text" required>
-            <label>Username</label>
-          </div>
-          <div class="inputBox">
-            <input type="password" required>
-            <label>Password</label>
-          </div>
-          <button type="submit">Login</button>
-        </form>
         <div class="toggle" onclick="flipCard()">Don’t have an account? Sign up</div>
->>>>>>> main
       </div>
 
       <!-- Signup Form -->
-      <div className="side back">
+      <div class="side back">
         <h2>Create Account</h2>
-<<<<<<< HEAD
-        <div className="inputBox">
+        <div class="inputBox">
           <input type="text" required>
           <label>Full Name</label>
         </div>
-        <div className="inputBox">
+        <div class="inputBox">
           <input type="email" required>
           <label>Email</label>
         </div>
-        <div className="inputBox">
+        <div class="inputBox">
           <input type="password" required>
           <label>Password</label>
         </div>
         <button>Register</button>
-        <div className="toggle" onclick="flipCard()">Already registered? Login</div>
-=======
-        <form onsubmit="handleLogin(event)">
-          <div class="inputBox">
-            <input type="text" required>
-            <label>Full Name</label>
-          </div>
-          <div class="inputBox">
-            <input type="email" required>
-            <label>Email</label>
-          </div>
-          <div class="inputBox">
-            <input type="password" required>
-            <label>Password</label>
-          </div>
-          <button type="submit">Register</button>
-        </form>
         <div class="toggle" onclick="flipCard()">Already registered? Login</div>
->>>>>>> main
       </div>
     </div>
   </div>
@@ -209,13 +175,6 @@
   <script>
     function flipCard() {
       document.querySelector(".container").classList.toggle("flip");
-    }
-
-    // Dummy Login/Signup function
-    function handleLogin(event) {
-      event.preventDefault(); // form reload na ho
-      // yaha koi bhi input daale chalega
-      window.location.href = "borrower/kyc.html"; // redirect to kyc.html
     }
   </script>
 </body>
