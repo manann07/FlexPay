@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   const lenderNav = [
     { name: "Loan Suggestions", icon: FileText, href: "/loan-suggestions" },
-    { name: "My Lendings", icon: CheckSquare, href: "/my-lendings" },
+    { name: "My Lending", icon: CheckSquare, href: "/mylending" },
     { name: "Wallet", icon: Wallet, href: "/wallet" },
   ];
 
@@ -23,8 +23,9 @@ export default function Dashboard() {
 
   return (
     <div className=" flex justify-start flex min-h-screen bg-white/80 backdrop-blur-md">
-                {/* topbar */}
+        {/* topbar */}
         {/* <TopBar currentPage="My Lendings" userInitial="G" /> */}
+        
       {/* Sidebar */}
       <aside className="w-64 p-6 text-white ">
         {/* Logo */}
