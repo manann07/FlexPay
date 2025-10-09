@@ -12,6 +12,9 @@ import React from "react";
 import { BrowserRouter, Routes,Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './App.css'
 import RootLayout from './layout/Rootlayout'
+
+import Dashboard from "./componet/dashboard"
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -27,6 +30,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router}/>
+      {/* <Dashboard/> */}
       
     </>
   )
