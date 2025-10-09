@@ -12,6 +12,14 @@ import React from "react";
 import { BrowserRouter, Routes,Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './App.css'
 import RootLayout from './layout/Rootlayout'
+
+import Dashboard  from './componet/dashboard'
+import MyLending from './pages/my-Lendings'
+import WalletPage from './pages/wallet'
+import LoanSuggestions from './pages/loanSuggestions'
+import KycRegistration from './pages/KYC_Registration'
+import LoanRequest from './pages/LoanRequest'
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -29,6 +37,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router}/>
+      {/* <WalletPage/> */}
       
     </>
   )
