@@ -5,7 +5,7 @@ import LOGO01 from '../assets/LOGO01.png'
 import TopBar from "./topbar";
 
 export default function Dashboard() {
-  const [userType, setUserType] = useState("borrower");
+  const [userType, setUserType] = useState("lender");
 
   const lenderNav = [
     { name: "Loan Suggestions", icon: FileText, href: "/loan-suggestions" },
