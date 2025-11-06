@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import Dashboard from "../componet/dashboard";
 import TopBar from "../componet/topbar";
 
@@ -66,21 +66,21 @@ export default function KycRegistration() {
   const progress = ((currentStep + 1) / stepTitles.length) * 100;
 
   return (
-    <div className="flex min-h-screen  bg-[#8DCFAB] text-[#263238]">
+    <div className="flex min-h-screen bg-[#8DCFAB] text-[#263238]">
       {/* Sidebar */}
       <Dashboard />
 
       {/* Right Section */}
-      <div className="flex flex-col flex-1 ">
+      <div className="flex flex-col flex-1">
         {/* Topbar */}
         <TopBar currentPage="KYC Registration" userInitial="G" />
 
         <main className="p-6 pt-20">
           {submitted ? (
-            <div className="text-center border border-[#67C090]/40 bg-[#67C090]/10 p-8 rounded-xl shadow-md">
+            <div className="text-center bg-white/40 backdrop-blur-md p-8 rounded-xl shadow-lg border border-[#67C090]/30">
               <div className="text-5xl mb-4 text-[#67C090]">✓</div>
               <h2 className="text-2xl font-bold">Submission Successful!</h2>
-              <p className="text-gray-600 mt-2">
+              <p className="mt-2">
                 Your KYC details are submitted for verification. We’ll notify you
                 once the process is complete.
               </p>
@@ -94,11 +94,11 @@ export default function KycRegistration() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="border border-[#67C090]/40 bg-white p-6 rounded-xl shadow-md"
+              className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6"
             >
               <div className="flex justify-between mb-3">
                 <p className="font-semibold">{stepTitles[currentStep]}</p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-[#263238]/70">
                   {Math.round(progress)}% Complete
                 </p>
               </div>
@@ -115,60 +115,60 @@ export default function KycRegistration() {
               {currentStep === 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">First Name *</label>
+                    <label className="text-dark">First Name *</label>
                     <input
                       type="text"
                       value={formData.firstName}
                       onChange={(e) =>
                         setFormData({ ...formData, firstName: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">Middle Name</label>
+                    <label className="text-dark">Middle Name</label>
                     <input
                       type="text"
                       value={formData.middleName}
                       onChange={(e) =>
                         setFormData({ ...formData, middleName: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">Last Name *</label>
+                    <label className="text-dark">Last Name *</label>
                     <input
                       type="text"
                       value={formData.lastName}
                       onChange={(e) =>
                         setFormData({ ...formData, lastName: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">Date of Birth *</label>
+                    <label className="text-dark">Date of Birth *</label>
                     <input
                       type="date"
                       value={formData.dob}
                       onChange={(e) =>
                         setFormData({ ...formData, dob: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">Marital Status *</label>
+                    <label className="text-dark">Marital Status *</label>
                     <select
                       value={formData.maritalStatus}
                       onChange={(e) =>
                         setFormData({ ...formData, maritalStatus: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     >
                       <option value="">Select...</option>
@@ -182,40 +182,38 @@ export default function KycRegistration() {
               {currentStep === 1 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">District *</label>
+                    <label className="text-dark">District *</label>
                     <input
                       type="text"
                       value={formData.district}
                       onChange={(e) =>
                         setFormData({ ...formData, district: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">
-                      City / Municipality *
-                    </label>
+                    <label className="text-dark">City / Municipality *</label>
                     <input
                       type="text"
                       value={formData.city}
                       onChange={(e) =>
                         setFormData({ ...formData, city: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
                   <div className="flex flex-col md:col-span-2">
-                    <label className="text-sm text-gray-600">Street / Tole *</label>
+                    <label className="text-dark">Street / Tole *</label>
                     <input
                       type="text"
                       value={formData.street}
                       onChange={(e) =>
                         setFormData({ ...formData, street: e.target.value })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -225,24 +223,24 @@ export default function KycRegistration() {
               {currentStep === 2 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">PAN Card *</label>
+                    <label className="text-dark">PAN Card *</label>
                     <input
                       type="file"
                       onChange={(e) =>
                         setFormData({ ...formData, pan: e.target.files[0] })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600">Aadhaar Card *</label>
+                    <label className="text-dark">Aadhaar Card *</label>
                     <input
                       type="file"
                       onChange={(e) =>
                         setFormData({ ...formData, aadhaar: e.target.files[0] })
                       }
-                      className="border rounded px-3 py-2 focus:outline-none focus:border-[#67C090]"
+                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>

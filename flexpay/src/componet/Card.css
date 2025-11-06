@@ -1,0 +1,64 @@
+   /* Card */
+    /* .glass-card {
+      background: rgba(30, 41, 59, 0.6); //Slightly more opaque for better readability
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    } */
+    /* .loan-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .loan-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        border-color: rgba(56, 189, 248, 0.5);
+    } */
+    
+    /* Loan Detail Elements */
+    .loan-rate {
+      font-size: 2.5rem; /* Larger for emphasis */
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+    .risk-badge {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        /* background: #000; */
+    }
+/* .risk-low { background-color: rgba(16, 185, 129, 0.2); color: #10b981;}
+    .risk-medium { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b;}
+    .risk-high { background-color: rgba(239, 68, 68, 0.2); color: #ef4444;} */
+
+    .progress {
+        height: 10px;
+        background-color: #9ec5b3;
+    }
+    .progress-bar {
+        background-color: #38f882;
+    }
+   
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    hr.custom-divider {
+        border-color: #334155;
+        opacity: 0.5;
+    }
