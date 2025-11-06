@@ -40,7 +40,7 @@ export default function LoanRequest() {
           <h2 className="text-2xl font-bold mb-6">Loan Request</h2>
 
           {/* Form Card */}
-          <div className="bg-white border border-[#67C090]/40 rounded-xl shadow-md p-6">
+          <div className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6">
 
             {/* Progress Bar */}
             <div className="w-full bg-gray-200 h-2 rounded-full mb-6">
@@ -76,7 +76,7 @@ export default function LoanRequest() {
                     <h5 className="font-semibold mb-4">Loan Details</h5>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex flex-col">
-                        <label className="text-sm text-gray-600">
+                        <label className="text-dark text-gray-600">
                           Loan Amount
                         </label>
                         <input
@@ -86,7 +86,7 @@ export default function LoanRequest() {
                         />
                       </div>
                       <div className="flex flex-col">
-                        <label className="text-sm text-gray-600">
+                        <label className="text-dark text-gray-600">
                           Interest Rate (%)
                         </label>
                         <input
@@ -96,7 +96,7 @@ export default function LoanRequest() {
                         />
                       </div>
                       <div className="flex flex-col">
-                        <label className="text-sm text-gray-600">
+                        <label className="text-dark text-gray-600">
                           Tenure (Months)
                         </label>
                         <input
@@ -106,7 +106,7 @@ export default function LoanRequest() {
                         />
                       </div>
                       <div className="flex flex-col">
-                        <label className="text-sm text-gray-600">Purpose</label>
+                        <label className="text-dark text-gray-600">Purpose</label>
                         <input
                           type="text"
                           required
@@ -130,7 +130,7 @@ export default function LoanRequest() {
                     <h5 className="font-semibold mb-4">Collateral</h5>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex flex-col">
-                        <label className="text-sm text-gray-600">
+                        <label className="text-dark text-gray-600">
                           Collateral Available?
                         </label>
                         <select
@@ -143,7 +143,7 @@ export default function LoanRequest() {
                         </select>
                       </div>
                       <div className="flex flex-col">
-                        <label className="text-sm text-gray-600">
+                        <label className="text-dark text-gray-600">
                           Collateral Details
                         </label>
                         <input
@@ -176,7 +176,7 @@ export default function LoanRequest() {
                   <div>
                     <h5 className="font-semibold mb-4">Income Proof</h5>
                     <div className="flex flex-col">
-                      <label className="text-sm text-gray-600">
+                      <label className="text-dark text-gray-600">
                         Upload Documents
                       </label>
                       <input

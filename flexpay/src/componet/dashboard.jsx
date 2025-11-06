@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Home, Wallet, FileText, CheckSquare } from "lucide-react"; // icons
 import LOGO01 from '../assets/LOGO01.png'
 
 import TopBar from "./topbar";
 
 export default function Dashboard() {
-  const [userType, setUserType] = useState("borrower");
+  const [userType, setUserType] = useState("borrower"); // usertype = "lender" or "borrower"
 
   const lenderNav = [
-    { name: "Loan Suggestions", icon: FileText, href: "/loan-suggestions" },
-    { name: "My Lending", icon: CheckSquare, href: "/mylending" },
-    { name: "Wallet", icon: Wallet, href: "/wallet" },
+    { name: "Loan Suggestions", icon: FileText, href: "/LoanSuggestions" },
+    { name: "My Lending", icon: CheckSquare, href: "/myLending" },
+    { name: "Wallet", icon: Wallet, href: "/Wallet" },
   ];
 
   const borrowerNav = [
-    { name: "KYC Registration", icon: FileText, href: "/kyc" },
-    { name: "Loan Request", icon: CheckSquare, href: "/loan-request" },
-    { name: "Wallet", icon: Wallet, href: "/wallet" },
+    { name: "KYC Registration", icon: FileText, href: "/Kyc" },
+    { name: "Loan Request", icon: CheckSquare, href: "/Loan-request" },
+    { name: "Wallet", icon: Wallet, href: "/Wallet" },
   ];
 
   const navigation = userType === "lender" ? lenderNav : borrowerNav;
@@ -38,14 +39,14 @@ export default function Dashboard() {
           {/* main  */}
         <nav className="space-y-3">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className="flex items-center gap-3 px-4 py-2 rounded-lg  transition"
             >
               <item.icon size={18} />
               <span>{item.name}</span>
-            </a>
+            </Link>
           ))}
         </nav>
       </aside>

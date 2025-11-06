@@ -80,26 +80,26 @@ export default function MyLending() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
-            <div className="bg-white/40 backdrop-blur-md border border-[#67C090]/40 rounded-xl p-5 shadow-md">
+            <div className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6">
               <p className="text-sm text-gray-600">Total Investment</p>
               <p className="text-2xl font-bold">₹1,50,000</p>
             </div>
-            <div className="bg-white/40 backdrop-blur-md border border-[#67C090]/40 rounded-xl p-5 shadow-md">
+            <div className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6">
               <p className="text-sm text-gray-600">Total Interest Earned</p>
               <p className="text-2xl font-bold text-[#67C090]">₹12,450</p>
             </div>
-            <div className="bg-white/40 backdrop-blur-md border border-[#67C090]/40 rounded-xl p-5 shadow-md">
+            <div className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6">
               <p className="text-sm text-gray-600">Projected Annual Return</p>
               <p className="text-2xl font-bold text-blue-500">16.8%</p>
             </div>
-            <div className="bg-white/40 backdrop-blur-md border border-[#67C090]/40 rounded-xl p-5 shadow-md">
+            <div className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6">
               <p className="text-sm text-gray-600">Portfolio Health</p>
               <p className="text-2xl font-bold">4 Active / 1 Defaulted</p>
             </div>
           </div>
 
           {/* Investment Table */}
-          <div className="bg-white/40 backdrop-blur-md border border-[#67C090]/40 rounded-xl p-6 shadow-md">
+          <div className="bg-white/60 backdrop-blur-md border border-[#67C090]/40 rounded-2xl shadow-lg p-6">
             <h4 className="text-lg font-semibold mb-4">Investment Details</h4>
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm border-collapse">
