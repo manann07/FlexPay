@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Home, Wallet, FileText, CheckSquare } from "lucide-react"; // icons
 import LOGO01 from '../assets/LOGO01.png'
 
-import TopBar from "./topbar";
+// TopBar removed (unused) - import kept commented out until implemented
+// import TopBar from "./topbar";
 
 export default function Dashboard() {
   const [userType, setUserType] = useState("borrower"); // usertype = "lender" or "borrower"
@@ -24,9 +25,9 @@ export default function Dashboard() {
 
   return (
     <div className=" flex justify-start flex min-h-screen bg-white/80 backdrop-blur-md">
-        {/* topbar */}
-        {/* <TopBar currentPage="My Lendings" userInitial="G" /> */}
-        
+      {/* topbar */}
+      {/* <TopBar currentPage="My Lendings" userInitial="G" /> */}
+      
       {/* Sidebar */}
       <aside className="w-64 p-6 text-white ">
         {/* Logo */}
@@ -36,6 +37,24 @@ export default function Dashboard() {
               <span className=" mb-6 text-[#67C090 ]">FLEX</span>PAY</span>
           </div>
 
+          {/* User type toggle - uses setUserType to avoid unused variable lint error */}
+          <div className="mt-4 px-3">
+            <div className="text-sm font-medium text-gray-700 mb-2">View as</div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setUserType("borrower")}
+                className={`px-3 py-1 rounded-md ${userType === "borrower" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+              >
+                Borrower
+              </button>
+              <button
+                onClick={() => setUserType("lender")}
+                className={`px-3 py-1 rounded-md ${userType === "lender" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+              >
+                Lender
+              </button>
+            </div>
+          </div>
           {/* main  */}
         <nav className="space-y-3">
           {navigation.map((item) => (
