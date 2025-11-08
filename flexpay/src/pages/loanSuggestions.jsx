@@ -55,11 +55,9 @@ export default function LoanSuggestions() {
 
       {/* Main Section */}
       <div className="flex flex-col flex-1">
-        {/* Top Navbar */}
-        <TopBar currentPage="Investment Opportunities" userInitial="G" />
 
         {/* Main Content */}
-        <div className=" pt-20 p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="ml-63 pt-20 p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Loan Cards */}
           <div className="lg:col-span-9 space-y-6">
             <h2 className="text-2xl font-bold mb-4">Investment Opportunities</h2>
@@ -77,7 +75,7 @@ export default function LoanSuggestions() {
 
           {/* Wallet Sidebar */}
           <div className="lg:col-span-3">
-            <div className="sticky top-20 bg-white border border-[#67C090]/40 rounded-xl p-6 shadow-md">
+            <div className="sticky top-20 bg-white/60 border border-[#67C090]/40 rounded-xl p-6 shadow-md">
               <h5 className="text-lg font-bold mb-4">Lender Wallet</h5>
 
               <div className="mb-4">

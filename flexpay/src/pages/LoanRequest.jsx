@@ -32,11 +32,11 @@ export default function LoanRequest() {
       <Dashboard />
 
       {/* Right Side */}
-      <div className="flex flex-col flex-1">
+      <div className="pl-63 flex flex-col flex-1">
         {/* Topbar */}
-        <TopBar currentPage="Loan Request" userInitial="G" />
+        {/* <TopBar currentPage="Loan Request" userInitial="G" /> */}
 
-        <main className="p-6">
+        <main className="p-6 pt-25">
           <h2 className="text-2xl font-bold mb-6">Loan Request</h2>
 
           {/* Form Card */}
@@ -82,7 +82,7 @@ export default function LoanRequest() {
                         <input
                           type="number"
                           required
-                          className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                          className="border border-dark rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                         />
                       </div>
                       <div className="flex flex-col">
@@ -92,7 +92,7 @@ export default function LoanRequest() {
                         <input
                           type="number"
                           required
-                          className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                          className="border border-dark rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                         />
                       </div>
                       <div className="flex flex-col">
@@ -102,7 +102,7 @@ export default function LoanRequest() {
                         <input
                           type="number"
                           required
-                          className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                          className="border  border-dark  rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                         />
                       </div>
                       <div className="flex flex-col">
@@ -110,7 +110,7 @@ export default function LoanRequest() {
                         <input
                           type="text"
                           required
-                          className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                          className="border  border-dark  rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                         />
                       </div>
                     </div>
@@ -135,7 +135,7 @@ export default function LoanRequest() {
                         </label>
                         <select
                           required
-                          className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                          className="border border-dark rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                         >
                           <option value="">Select</option>
                           <option>Yes</option>
@@ -148,7 +148,7 @@ export default function LoanRequest() {
                         </label>
                         <input
                           type="text"
-                          className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                          className="border border-dark rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                         />
                       </div>
                     </div>
@@ -182,7 +182,7 @@ export default function LoanRequest() {
                       <input
                         type="file"
                         required
-                        className="border border-[#67C090] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
+                        className="border  border-dark  rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#67C090]"
                       />
                     </div>
                     <div className="mt-4 flex justify-between">

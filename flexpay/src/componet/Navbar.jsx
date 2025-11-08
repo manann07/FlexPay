@@ -113,7 +113,7 @@ const Navbar = () => {
                                     className="block px-3 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200 mx-3 text-center"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    Get Started
+                                    Register
                                 </NavLink>
                             </div>
                         </div>

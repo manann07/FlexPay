@@ -19,7 +19,7 @@
       display: block;
       margin-bottom: 8px;
       font-size: 14px;
-      color: #ddd;
+      color: #3a3a3a;
     }
 
     .radio-group {
@@ -46,11 +46,11 @@
       transition: 0.3s;
     }
 
-    .inputBox input:focus {
+    /* .inputBox input:focus {
       border-bottom: 2px solid #4da3ff;
-    }
+    } */
 
-    button {
+    /* button {
       width: 100%;
       padding: 12px;
       border: none;
@@ -61,23 +61,23 @@
       border-radius: 6px;
       cursor: pointer;
       transition: 0.3s;
-    }
+    } */
 
-    button:hover {
+    /* button:hover {
       background: #1f7ae0;
-    }
+    } */
 
-    .link {
+    /* .link {
       margin-top: 15px;
       font-size: 14px;
       text-align: center;
-    }
+    } */
 
-    .link a {
+    /* .link a {
       color: #4da3ff;
       text-decoration: none;
-    }
+    } */
 
-    .link a:hover {
+    /* .link a:hover {
       text-decoration: underline;
-    }
+    } */
