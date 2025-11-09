@@ -11,7 +11,7 @@ const Home = () =>{
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-4 py-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div className="space-y-8">

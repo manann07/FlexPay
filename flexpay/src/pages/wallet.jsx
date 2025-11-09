@@ -1,6 +1,7 @@
 import React from "react";
 import { Wallet, ArrowDownCircle, ArrowUpCircle } from "lucide-react";
 import Dashboard from "../componet/dashboard";
+import TopBar from "../componet/topbar";
 
 export default function WalletPage() {
   return (
@@ -9,27 +10,12 @@ export default function WalletPage() {
       <Dashboard/>
 
       {/* Main Section */}
-      <div className="flex-1 flex flex-col">
+      <div className="pl-63 flex-1 flex flex-col">
       {/* Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white/70 backdrop-blur-md sticky top-0 z-10">
-          <nav className="text-sm">
-            <ol className="flex space-x-2 text-gray-500">
-              <li>
-                <a href="/" className="hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>/</li>
-              <li className="hover:underline text-[#263238]">wallet</li>
-            </ol>
-          </nav>
-          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#263238] text-white font-bold">
-            G
-          </div>
-        </div>
+      {/* <TopBar currentPage="My wallet" userInitial="G" /> */}
 
         {/* Content */}
-        <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="pt-20 p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Wallet Card */}
           <div>
             <h2 className="text-2xl font-bold mb-4">My Wallet</h2>

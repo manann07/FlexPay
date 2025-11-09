@@ -86,10 +86,10 @@ const HOW = () => {
                             Start your journey today!
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="px-8 py-3 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <button className="px-8 py-3 border-2  border-white bg-gray text-dark font-semibold rounded-lg hover:bg-white hover:text-dark transition-colors duration-200">
                                 Start Borrowing
                             </button>
-                            <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-600 transition-colors duration-200">
+                            <button className="px-8 py-3 border-2  border-white bg-gray text-dark font-semibold rounded-lg hover:bg-white hover:text-dark transition-colors duration-200">
                                 Start Lending
                             </button>
                         </div>

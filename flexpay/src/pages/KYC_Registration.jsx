@@ -66,16 +66,18 @@ export default function KycRegistration() {
   const progress = ((currentStep + 1) / stepTitles.length) * 100;
 
   return (
-    <div className="flex min-h-screen bg-[#8DCFAB] text-[#263238]">
+    <div className="pl-63flex min-h-screen bg-[#8DCFAB] text-[#263238]">
       {/* Sidebar */}
       <Dashboard />
 
       {/* Right Section */}
-      <div className="flex flex-col flex-1">
+      <div className="pl-63 flex flex-col flex-1">
         {/* Topbar */}
-        <TopBar currentPage="KYC Registration" userInitial="G" />
+        {/* <TopBar currentPage="KYC Registration" userInitial="G" /> */}
 
-        <main className="p-6 pt-20">
+        {/* main content  */}
+        <main className="p-6 pt-25">
+          <h2 className="text-2xl font-bold mb-6">KYC Registration</h2>
           {submitted ? (
             <div className="text-center bg-white/40 backdrop-blur-md p-8 rounded-xl shadow-lg border border-[#67C090]/30">
               <div className="text-5xl mb-4 text-[#67C090]">✓</div>
@@ -84,12 +86,12 @@ export default function KycRegistration() {
                 Your KYC details are submitted for verification. We’ll notify you
                 once the process is complete.
               </p>
-              <button
+              {/* <button
                 className="mt-4 bg-[#67C090] text-white px-5 py-2 rounded-lg hover:bg-[#559f77] transition"
                 onClick={() => window.location.reload()}
               >
                 Back to Dashboard
-              </button>
+              </button> */}
             </div>
           ) : (
             <form
@@ -117,12 +119,12 @@ export default function KycRegistration() {
                   <div className="flex flex-col">
                     <label className="text-dark">First Name *</label>
                     <input
+                     className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       type="text"
                       value={formData.firstName}
                       onChange={(e) =>
                         setFormData({ ...formData, firstName: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -134,7 +136,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, middleName: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -145,7 +147,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, lastName: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -157,7 +159,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, dob: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -168,7 +170,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, maritalStatus: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     >
                       <option value="">Select...</option>
@@ -189,7 +191,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, district: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -201,7 +203,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, city: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -213,7 +215,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, street: e.target.value })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -229,7 +231,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, pan: e.target.files[0] })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>
@@ -240,7 +242,7 @@ export default function KycRegistration() {
                       onChange={(e) =>
                         setFormData({ ...formData, aadhaar: e.target.files[0] })
                       }
-                      className="border border-[#67C090]/50 rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
+                      className="border border-dark rounded px-3 py-2 focus:outline-none focus:border-[#67C090] bg-transparent"
                       required
                     />
                   </div>

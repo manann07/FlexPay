@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlexPay Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="profile.css" />
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #263238;
+  display: flex;
+  justify-content: center;
+  padding: 40px 10px;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #1976d2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.profile-info h2 {
+  margin-bottom: 6px;
+}
+
+.profile-info p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.role-badge.borrower {
+  background-color: #ffca28;
+  color: #3e2723;
+}
+
+.role-badge.lender {
+  background-color: #66bb6a;
+  color: #1b5e20;
+}
+
+section h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.loan-card {
+  background: #f9fafb;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #1976d2;
+  transition: 0.3s;
+}
+
+.loan-card:hover {
+  transform: translateY(-3px);
+  background: #f1f8ff;
+}
+
+.loan-card h4 {
+  color: #1565c0;
+  margin-bottom: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <header class="profile-header">
+      <div class="profile-avatar" id="profile-avatar">M</div>
+      <div class="profile-info">
+        <h2 id="username">Abc</h2>
+        <p id="email">abc@example.com</p>
+        <p id="contact">+91 9876543210</p>
+        <span class="role-badge" id="role">Borrower</span>
+      </div>
+    </header>
+
+    <!-- Borrower Section -->
+    <section class="borrower-section" id="borrower-section">
+      <h3>My Loan Requests</h3>
+      <div class="loan-card">
+        <h4>Loan Request #101</h4>
+        <p>Amount: ₹50,000</p>
+        <p>Status: Pending</p>
+      </div>
+      <div class="loan-card">
+        <h4>Loan Request #102</h4>
+        <p>Amount: ₹1,20,000</p>
+        <p>Status: Approved</p>
+      </div>
+    </section>
+
+    <!-- Lender Section -->
+    <section class="lender-section" id="lender-section">
+      <h3>Loans Invested</h3>
+      <div class="loan-card">
+        <h4>Investment #501</h4>
+        <p>Borrower: Rohan Patel</p>
+        <p>Amount: ₹30,000</p>
+        <p>Return Rate: 12%</p>
+      </div>
+      <div class="loan-card">
+        <h4>Investment #502</h4>
+        <p>Borrower: Priya Sharma</p>
+        <p>Amount: ₹45,000</p>
+        <p>Return Rate: 10%</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // You can dynamically set the role here (from backend or localStorage)
+    const role = "lender"; // Change to "Lender" to test
+
+    const borrowerSection = document.getElementById("borrower-section");
+    const lenderSection = document.getElementById("lender-section");
+    const roleBadge = document.getElementById("role");
+
+    // Toggle visibility based on role
+    if (role === "Borrower") {
+      lenderSection.style.display = "none";
+      borrowerSection.style.display = "block";
+      roleBadge.textContent = "Borrower";
+      roleBadge.classList.add("borrower");
+    } else {
+      borrowerSection.style.display = "none";
+      lenderSection.style.display = "block";
+      roleBadge.textContent = "Lender";
+      roleBadge.classList.add("lender");
+    }
+
+    // Generate first letter of username for avatar
+    const username = document.getElementById("username").textContent.trim();
+    document.getElementById("profile-avatar").textContent = username[0].toUpperCase();
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TopBar({ currentPage = "Dashboard", userInitial = "G" }) {
   return (
-    <div className="fixed w-full flex items-center justify-between px-2 py-2 border-b border-gray-200 bg-white/80 backdrop-blur-md z-20">
+    <div className="ml-64 fixed w-full flex items-center justify-between px-2 py-2 border-b border-gray-200 bg-white/80 backdrop-blur-md z-20">
       {/* Breadcrumb */}
       <nav className="text-sm mt-4 ">
         <ol className="flex space-x-3 text-gray-500">

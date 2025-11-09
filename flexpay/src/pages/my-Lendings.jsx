@@ -70,10 +70,7 @@ export default function MyLending() {
         <Dashboard/>
     
    {/* Right Section */}
-      <div className="flex flex-col flex-1">
-        {/* Top Navbar */}
-        <TopBar currentPage="Investment Opportunities" userInitial="G" />
-
+      <div className="ml-63 flex flex-col flex-1">
 
         <div className="flex-1 p-6 pt-20">
           <h2 className="text-2xl font-bold mb-6">My Lending Portfolio</h2>
