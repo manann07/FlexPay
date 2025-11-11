@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopBar from "../componet/topbar";
 import Dashboard from "../componet/dashboard";
 import Card from "../componet/Card";
 
 export default function LoanSuggestions() {
-  const loans = [
+  // 🔹 Hardcoded sample loan stays same
+  const hardcodedLoans = [
     {
       id: "EDU-84321",
       title: "Educational Loan for Master's Degree",
@@ -13,27 +14,42 @@ export default function LoanSuggestions() {
       risk: "Medium",
       funded: 12500,
       total: 30000,
-    }
-    // ,
-    // {
-    //   id: "BIZ-55902",
-    //   title: "Small Business Expansion",
-    //   desc: "Looking to purchase new equipment for my successful cafe to increase production capacity. Business has been profitable for 3 years.",
-    //   rate: "22%",
-    //   risk: "High",
-    //   funded: 45000,
-    //   total: 75000,
-    // },
-    // {
-    //   id: "HML-10457",
-    //   title: "Home Renovation Loan",
-    //   desc: "Need funds for urgent home repairs and renovation. Stable government job with 10+ years of service. Excellent credit history.",
-    //   rate: "11.5%",
-    //   risk: "Low",
-    //   funded: 50000,
-    //   total: 50000,
-    // },
+    },
   ];
+
+  // 🔹 Backend fetched loans
+  const [backendLoans, setBackendLoans] = useState([]);
+
+  useEffect(() => {
+    const fetchLoans = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/loan-suggestions`);
+        if (res.ok) {
+          const data = await res.json();
+          // convert backend structure → UI-compatible format
+          const formatted = data.map((loan) => ({
+            id: `REQ-${loan.id}`,
+            title: loan.purpose || "Personal Loan Request",
+            desc: `Borrower: ${loan.borrower_name} | Amount: ₹${loan.amount}`,
+            rate: `${loan.interest_rate}%`,
+            risk: "Medium", // temporary placeholder (future: calculate based on credit)
+            funded: 0,
+            total: loan.amount,
+          }));
+          setBackendLoans(formatted);
+        } else {
+          console.error("Failed to fetch loan suggestions");
+        }
+      } catch (err) {
+        console.error("Error fetching loans:", err);
+      }
+    };
+
+    fetchLoans();
+  }, []);
+
+  // 🔹 Merge both: hardcoded (static) + backend (live)
+  const allLoans = [...hardcodedLoans, ...backendLoans];
 
   const getRiskClass = (risk) => {
     switch (risk) {
@@ -55,6 +71,8 @@ export default function LoanSuggestions() {
 
       {/* Main Section */}
       <div className="flex flex-col flex-1">
+        {/* Optional Top Bar */}
+        {/* <TopBar currentPage="Loan Suggestions" userInitial="L" /> */}
 
         {/* Main Content */}
         <div className="ml-63 pt-20 p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -62,15 +80,22 @@ export default function LoanSuggestions() {
           <div className="lg:col-span-9 space-y-6">
             <h2 className="text-2xl font-bold mb-4">Investment Opportunities</h2>
 
-            {loans.map((loan) => (
-              <Card title={loan.title} 
-              riskLevel={loan.risk} 
-              riskClass={getRiskClass(loan.risk)} 
-              description={loan.desc} 
-              interestRate={loan.rate} 
-              funded={loan.funded} 
-              total={loan.total} />
-            ))}
+            {allLoans.length === 0 ? (
+              <p>No loan suggestions available.</p>
+            ) : (
+              allLoans.map((loan, index) => (
+                <Card
+                  key={index}
+                  title={loan.title}
+                  riskLevel={loan.risk}
+                  riskClass={getRiskClass(loan.risk)}
+                  description={loan.desc}
+                  interestRate={loan.rate}
+                  funded={loan.funded}
+                  total={loan.total}
+                />
+              ))
+            )}
           </div>
 
           {/* Wallet Sidebar */}

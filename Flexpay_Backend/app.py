@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from models.user import db
 import pymysql
+
 pymysql.install_as_MySQLdb()
 
 def create_app():
@@ -13,13 +14,20 @@ def create_app():
 
     db.init_app(app)
 
+    from models import user,loan  
+
+
     with app.app_context():
         db.create_all()
 
     from routes.user_routes import user_bp
+    from routes.loan_routes import loan_bp
+
     app.register_blueprint(user_bp)
+    app.register_blueprint(loan_bp)
 
     return app
+
 
 if __name__ == "__main__":
     app = create_app()

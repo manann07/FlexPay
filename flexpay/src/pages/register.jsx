@@ -59,36 +59,6 @@ function Register() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-5">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img src={LOGO01} alt="flexpay" className="mx-auto h-6 w-10" />
-        <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
-          Create your account
-        </h2>
-      </div>
-
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form onSubmit={handleRegister} className="space-y-6">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-900"
-            >
-              Full Name
-            </label>
-            <div className="mt-2">
-              <input
-                id="name"
-                type="text"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                autoComplete="name"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm"
-              />
-=======
     <div className="flex min-h-screen flex-col px-6 py-6 md:py-10 bg-[#d9f1df]">
       <div className=" mt-10 mx-auto w-full max-w-6xl ">
         <div className="mb-8 flex items-center gap-2 ">
@@ -101,7 +71,6 @@ function Register() {
               <img src={MAN_ELLIPSE} alt="decorative circle" className="pointer-events-none absolute -left-6 -top-3  select-none opacity-60" />
               <img src={MAN_DECOR} alt="decorative shape" className="pointer-events-none absolute -top-2 h-24 w-auto select-none opacity-80" />
               <img src={MAN_DESK} alt="Illustration" className="relative ml-0 h-auto w-full max-w-md" />
->>>>>>> 54ea4af0d477408377952ba757e651a41a10643d
             </div>
           </div>
 
@@ -143,11 +112,6 @@ function Register() {
                 onChange={e => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-<<<<<<< HEAD
-                autoComplete="email"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm"
-=======
->>>>>>> 54ea4af0d477408377952ba757e651a41a10643d
               />
             </div>
 
@@ -177,21 +141,10 @@ function Register() {
             {/* <div>
               <label className="block text-sm font-medium text-gray-900">Aadhar</label>
               <input
-<<<<<<< HEAD
-                id="password"
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="new-password"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm"
-=======
                 className="mt-2 block w-full rounded-md bg-white px-3 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 value={aadhar_no}
                 onChange={e => setAadharNo(e.target.value)}
                 placeholder="12-digit Aadhar number"
->>>>>>> 54ea4af0d477408377952ba757e651a41a10643d
               />
             </div> */}
 

@@ -127,10 +127,6 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-<<<<<<< HEAD
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm"
-=======
->>>>>>> 54ea4af0d477408377952ba757e651a41a10643d
               />
             </label>
             {/* change added: password field   */}
@@ -158,23 +154,7 @@ function Login() {
                 </Link>
               </div>
             </div>
-<<<<<<< HEAD
-            <div className="mt-2">
-              <input
-                id="password"
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="current-password"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm"
-              />
-            </div>
-          </div>
-=======
             {/* change=== */}
->>>>>>> 54ea4af0d477408377952ba757e651a41a10643d
 
             {error && <div className="login-error">{error}</div>}
 
